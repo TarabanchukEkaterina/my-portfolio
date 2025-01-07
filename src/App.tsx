@@ -1,15 +1,22 @@
-import { useState } from 'react'
+import styled from "styled-components"
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+      <Title>Welcom</Title> 
     </>
   )
 }
 
 export default App
+
+const Title = styled.h1`
+  font-size: 1.5em;
+  text-align: center;
+  color: #82d082;
+`
+
+
+// Спец символы  для кнопки Live ( &lt;~&gt; )
+// Спец символы для кнопки Cached ( &gt;= )    &#x2265
