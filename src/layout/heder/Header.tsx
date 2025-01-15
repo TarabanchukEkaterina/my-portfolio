@@ -2,29 +2,23 @@ import styled from "styled-components"
 import { Logo } from "../../components/logo/Logo"
 import { Menu } from "../../components/menu/Menu"
 
+const itemMenu = ['home', 'works', 'about-me', 'contacts']
+
 export function Header() {
 
   return (
-    <StyledHeader>
+    <HeaderConteiner>
       <Logo />
-      <Menu />
-    </StyledHeader>
+      <Menu linkMenu={itemMenu}/>
+    </HeaderConteiner>
   )
 }
 
-const StyledHeader = styled.header`
-  background: #282c33;
-
+const HeaderConteiner = styled.header`
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  flex-direction: row;
-  gap: 555px;
-
+  justify-content: space-between;
   padding: 32px 0px 8px 0px;
-  /* width: 1024px; */
-  min-height: 10vh; //61px
 
-  /* display:flex;
-  justify-content:space-between; */
+  border: 1px solid #1e00ff;
+  width: 1024px;/*⚠️ заглушка */
 `

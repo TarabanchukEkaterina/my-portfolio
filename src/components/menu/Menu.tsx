@@ -1,30 +1,44 @@
 import styled from "styled-components"
+import { Dropdown } from "../dropdown/Dropdown"
 
-export function Menu() {
+type MenuPropsType = {
+  linkMenu: Array<string>
+}
+
+export function Menu(props: MenuPropsType) {
   return (
-    <StyledMenu>
+    <MenuConteiner>
       <ul>
-        <li>
-          <a href="">#home</a>
-        </li>
-        <li>
-          <a href="">#works</a>
-        </li>
-        <li>
-          <a href="">#about-me</a>
-        </li>
-        <li>
-          <a href="">#contacts</a>
-        </li>
-        <>EN\/</>
+        {props.linkMenu.map((item: string, index: number) => {
+          return (
+            <li key={index}>
+              <Link href="#"><span>#</span>{item}</Link>
+            </li>
+          )
+        })}
       </ul>
-    </StyledMenu>
+      <Dropdown/>
+    </MenuConteiner>
   )
 }
 
-const StyledMenu = styled.nav`
+const MenuConteiner = styled.nav`
+  display: flex;
+  min-width: max-content;
+  gap: 32px;
   ul{
-    display:flex;
-    gap:30px;
+    display: flex;
+    min-width: max-content;
+    gap: 32px;
+  }
+`
+const Link = styled.a`
+  color: #abb2bf;
+  span{
+    color:#c778dd;
+  }
+  &:hover{
+    color: #fff;
+    font-weight: 500;
   }
 `
