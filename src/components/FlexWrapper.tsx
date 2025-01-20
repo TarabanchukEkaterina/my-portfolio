@@ -2,19 +2,22 @@
 import styled from "styled-components";
 
 type FlexWrapperPropsType = {
-  direction?: string
-  justify?: string
-  align?: string
-  wrap?: string
+  flexDirection?: string
+  justifyContent?: string
+  // alignContent?: string
+  alignItems?: string
+  flexWrap?: string
+  gap?: string
 }
 
 export const FlexWrapper = styled.div<FlexWrapperPropsType>`
   display:flex;
-  flex-direction: ${props => props.direction || "row"};
-  justify-content: ${props => props.justify || "flex-start"};
-  align-items: ${props => props.align || "stretch"};
-  flex-wrap: ${props => props.wrap || "nowrap"};
-
-  //заглушка 📌
+  flex-direction: ${props => props.flexDirection || "row"};
+  justify-content: ${props => props.justifyContent || "flex-start"};
+  align-items: ${props => props.alignItems || "stretch"};
   
+  flex-wrap: ${props => props.flexWrap || "nowrap"};
+  gap: ${props => props.gap || "0px"};
+  /* background-color:#ff000038; */
 `
+/* align-content: ${props => props.alignContent || "space-between"}; */

@@ -12,7 +12,7 @@ export function Projects() {
   return (
     <ProjectsConteiner>
       <ConteinerTitleLink>
-        <Title titleName='projects' />
+        <Title name='projects' lineWidth={'511'} lineId={'line'} lineViewBox={'0 0 511 2'} />
         <a href="projects">View all {'~~>'}</a>
       </ConteinerTitleLink>
       <CardConteiner>

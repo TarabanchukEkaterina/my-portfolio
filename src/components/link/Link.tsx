@@ -1,33 +1,29 @@
-import styled from "styled-components" //, { css }
+import styled from "styled-components"
+import { MyTheme } from "../../styles/MyTheme.styled"
 
 type LinkPropsType = {
   linkhref: string
-  name: string
-  icon: string
-  
-  color?: string
-  border?: string
+  name?: string
+  icon?: string
 }
 
 export function Link(props: LinkPropsType) {
   return (
-    <LinkStyled href={props.linkhref}>
-      {props.name}<span>{props.icon}</span>
-    </LinkStyled>
+    <StyledLink href={props.linkhref}>
+      {props.name}
+      <span>{props.icon}</span>
+    </StyledLink>
   )
 }
 
-const LinkStyled = styled.a`//<LinkPropsType>
+const StyledLink = styled.a`
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: row;
-  gap: 10px;
-
+  width: fit-content;
   padding: 8px 16px;
   font-weight: 500;
-
-  border: 1px solid #c778dd;
-  color: #ffffff;;//${props => props.color}
-  
+  color: ${MyTheme.colors.darkTheme.fontHeader};
+  border: 1px solid ${MyTheme.colors.darkTheme.accent};
 `

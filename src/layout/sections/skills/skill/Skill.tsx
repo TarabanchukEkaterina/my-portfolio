@@ -1,42 +1,51 @@
 import styled from "styled-components"
 
-type SkillStyledType = {
-  title: Array<string>
-  groupSkills: {
-    [key: string]: string[]
-  }
+type SkillPropsType = {
+  title?: string
+  text: Array<string>
 }
 
-export function Skill(props: SkillStyledType) {
-
-  function S() {
-    return props.groupSkills['Languages'] //приходит одна и таже строка
-  }
-
+export function Skill(props: SkillPropsType) {
   return (
     <StyledSkill>
-      {props.title.map((item: string, index: number) => {
-        return (
-        <>
-          <SkillTitle key={index}>{item}</SkillTitle>
-          <SkillText>
-            <MiniSkill>{S()}</MiniSkill>{/* создать компонент MiniSkill и в него будет приходить строки, потом из строк сделать слова */}
-          </SkillText>
-        </>
-        )
-      })}
+      <Title>{props.title}</Title>
+      <Line />
+      <TextConteineh>
+        {props.text.map((item) => {
+          return (
+            <Text>{item}</Text>
+          )
+        })}
+      </TextConteineh>
     </StyledSkill>
   )
 }
 const StyledSkill = styled.div`
-  width:20%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 0px;
+  border: 1px solid #abb2bf;
+  height: fit-content;
 `
-const SkillTitle = styled.h3`
-  background-color: #80e086;
+const Title = styled.h3`
+  padding: 0 8px;
+  width: 100%;
+  font-weight: 600;
+  color: #fff;
 `
-const SkillText = styled.div`
-  background-color: #4eea58;
+const Line = styled.span`
+border: 1px solid #abb2bf;
+width: 100%;
 `
-const MiniSkill = styled.p`
-  
+const TextConteineh = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 0;
+`
+const Text = styled.span`
+  color: #abb2bf;
+  padding-left: 8px;
 `

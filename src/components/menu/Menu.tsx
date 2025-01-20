@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { Dropdown } from "../dropdown/Dropdown"
+import { MyTheme } from "../../styles/MyTheme.styled"
 
 type MenuPropsType = {
   linkMenu: Array<string>
@@ -7,38 +8,38 @@ type MenuPropsType = {
 
 export function Menu(props: MenuPropsType) {
   return (
-    <MenuConteiner>
+    <StyledMenu>
       <ul>
         {props.linkMenu.map((item: string, index: number) => {
           return (
-            <li key={index}>
-              <Link href="#"><span>#</span>{item}</Link>
-            </li>
+            <MenuListItem key={index}>
+              <MenuLink href={"#"}><span>#</span>{item}</MenuLink>
+            </MenuListItem>
           )
         })}
       </ul>
-      <Dropdown/>
-    </MenuConteiner>
+      <Dropdown />
+    </StyledMenu>
   )
 }
 
-const MenuConteiner = styled.nav`
+const StyledMenu = styled.nav`
   display: flex;
-  min-width: max-content;
   gap: 32px;
-  ul{
+  ul {
     display: flex;
-    min-width: max-content;
     gap: 32px;
   }
 `
-const Link = styled.a`
-  color: #abb2bf;
+const MenuListItem = styled.li`
   span{
-    color:#c778dd;
+    color: ${MyTheme.colors.darkTheme.accent};
   }
+`
+const MenuLink = styled.a`
+color: ${MyTheme.colors.darkTheme.font};
   &:hover{
-    color: #fff;
+    color: ${MyTheme.colors.darkTheme.fontHeader};
     font-weight: 500;
   }
 `
